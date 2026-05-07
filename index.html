@@ -109,6 +109,7 @@ const KB_ROWS = [["ㅂ","ㅈ","ㄷ","ㄱ","ㅅ","ㅛ","ㅕ","ㅑ","ㅐ","ㅔ"],[
 function decompose(str) {
   const r = [];
   for (const c of str) {
+    if (c === " ") continue; // 공백 무시
     const code = c.charCodeAt(0) - 0xAC00;
     if (code < 0 || code > 11171) { r.push(c); continue; }
     const cho=CHO[Math.floor(code/28/21)], jung=JUNG[Math.floor((code/28)%21)], jong=JONG[code%28];
